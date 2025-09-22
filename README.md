@@ -27,6 +27,34 @@ Easily create, track, and manage customer support requests with features like em
 
 ---
 
+## 📥 Email Import (IMAP/POP3) Setup
+
+To automatically create tickets from incoming emails, follow these steps:
+
+1. **Configure a Department**  
+   In your Filament admin panel, navigate to **Support > Departments**.  
+   Create a new department and fill in the *Mail Import* section with your IMAP or POP3 server credentials.  
+   Enable the **Mail Import Enabled** toggle.
+
+2. **Schedule the Fetch Command**  
+   The plugin includes an Artisan command to fetch mail.  
+   You need to schedule it to run periodically in your `app/Console/Kernel.php` file.
+
+3. **Ensure Your Scheduler is Running**  
+   Make sure you have a single cron entry on your server to run the Laravel scheduler,  
+   as described in the Laravel documentation.
+
+---
+
+## 🔒 Permissions
+
+The plugin defines two levels of access:
+
+- **Global Admin** → Can see and manage all tickets from all departments.  
+- **Department Admin** → Can only see and manage tickets assigned to their department or directly to them.
+
+---
+
 ## 🚀 Installation
 
 Getting started is easy. Just follow these steps.
@@ -65,3 +93,4 @@ Publish the configuration file to customize the plugin's behavior.
 
 ```bash
 php artisan vendor:publish --tag="advanced-support-desk-config"
+```
