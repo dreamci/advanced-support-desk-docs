@@ -57,12 +57,17 @@ Password: 8c210f8f-6173-3932-c4ba-8bcc723ef500:mydomain.com
 
 To clarify, the license key and fingerprint should be separated by a colon (:).
 
+
 Run the migrations:
 ```bash
 php artisan migrate
 ```
+
+
     
 In your `app/Providers/Filament/AdminPanelProvider.php` add the plugin to the `plugin()` method:
+
+
 ```php
 use Umnidev\Helpdesk\HelpdeskPlugin;
 
@@ -76,6 +81,11 @@ public function panel(Panel $panel): Panel
 }
 ```
 
+Publish the configuration file to customize the plugin's behavior.
+
+```bash
+php artisan vendor:publish --tag="helpdesk-config"
+```
 
 
 ---
@@ -99,51 +109,10 @@ To automatically create tickets and receive replies from incoming emails, follow
 
 ---
 
-## 🔒 Permissions
+## Permissions
 
 The plugin defines two levels of access:
 
 - **Global Admin** → Can see and manage all tickets from all departments.  
 - **Department Admin** → Can only see and manage tickets assigned to their department or directly to them.
 
----
-
-## 🚀 Installation
-
-Getting started is easy. Just follow these steps.
-
-1.  **Install the plugin via Composer:**
-    ```bash
-    composer require your-vendor/your-package-name
-    ```
-
-2.  **Run the migrations:**
-    This will create the necessary tables for tickets, messages, departments, and other related tables.
-    ```bash
-    php artisan migrate
-    ```
-
-3.  **Register the plugin in your Panel Provider:**
-    In your `app/Providers/Filament/AdminPanelProvider.php` add the plugin to the `plugin()` method:
-    ```php
-    use Umnidev\Helpdesk\HelpdeskPlugin;
-
-    public function panel(Panel $panel): Panel
-    {
-        return $panel
-            // ...
-            ->plugin(
-                Helpdesk::make()
-            );
-    }
-    ```
-
----
-
-## ⚙️ Configuration
-
-Publish the configuration file to customize the plugin's behavior.
-
-```bash
-php artisan vendor:publish --tag="advanced-support-desk-config"
-```
