@@ -9,6 +9,7 @@ A **Filament plugin** that provides a support ticket desk for your Laravel appli
 ## Features
 
 -    **Ticket Management**: Create, assign, and track support tickets with status, priority, and department fields.
+-    **Multi-Department with Inboxes**: Manage multiple departments, each with its own email address, inbox, and ticket flow.
 -    **Requester & Client Integration**: Automatically link tickets to your application's users (clients) with name and email.
 -    **Email Import (IMAP/POP3)**: Automatically fetch emails from a mailbox and convert them into tickets or replies.
 -    **Direct Email Replies**: Reply to tickets directly from the Filament panel; replies are sent to the requester via email.
@@ -22,7 +23,7 @@ A **Filament plugin** that provides a support ticket desk for your Laravel appli
 
 -    
 ## Licences
-You can buy a license for the plugin on the [AnyStack](https://checkout.anystack.sh/filament-advanced-choice) website.
+You can buy a license for the plugin on the [AnyStack](https://anystack.sh/download/filament-helpdesk) website.
 
 ## Installation
 
@@ -33,7 +34,7 @@ Make sure you add the following repository to your `composer.json` file:
     "repositories": [
         {
             "type": "composer",
-            "url": "https://filament-advanced-choice.composer.sh"
+            "url": "https://filament-helpdesk.composer.sh"
         }
     ],
 }
@@ -42,49 +43,46 @@ Make sure you add the following repository to your `composer.json` file:
 Then, run the following command to install the package:
 
 ```bash
-composer require codewithdennis/filament-advanced-choice
+composer require umnidev/helpdesk
 ```
 
 To activate your license, use your email address as the username. For the password, you must enter your license key followed immediately by your activation fingerprint — both are required.
 
 ```bash 
 Loading composer repositories with package information
-Authentication required (filament-advanced-choice.composer.sh):
-Username: info@codewithdennis.nl
-Password: 8c210f8f-6173-3932-c4ba-8bcc723ef500:codewithdennis.nl
+Authentication required (filament-helpdesk.composer.sh):
+Username: info@mydomain.com
+Password: 8c210f8f-6173-3932-c4ba-8bcc723ef500:mydomain.com
 ```
 
 To clarify, the license key and fingerprint should be separated by a colon (:).
 
-2.  **Run the migrations:**
-    This will create the necessary tables for tickets, messages, departments, etc.
-    ```bash
-    php artisan migrate
-    ```
+Run the migrations:
+```bash
+php artisan migrate
+```
     
-3.  **Register the plugin in your Panel Provider:**
-    In your `app/Providers/Filament/AdminPanelProvider.php` (or the panel provider you use), add the plugin to the `plugin()` method:
-    ```php
-    use Umnidev\AdvancedSupportDesk\AdvancedSupportDeskPlugin;
+In your `app/Providers/Filament/AdminPanelProvider.php` add the plugin to the `plugin()` method:
+```php
+use Umnidev\Helpdesk\HelpdeskPlugin;
 
-    public function panel(Panel $panel): Panel
-    {
-        return $panel
-            // ...
-            ->plugin(
-                AdvancedSupportDeskPlugin::make()
-            );
-    }
-    ```
----
+public function panel(Panel $panel): Panel
+{
+    return $panel
+    // ...
+        ->plugin(
+            HelpdeskPlugin::make()
+        );
+}
+```
 
 
 
 ---
 
-## 📥 Email Import (IMAP/POP3) Setup
+## Email Import (IMAP/POP3) Setup
 
-To automatically create tickets from incoming emails, follow these steps:
+To automatically create tickets and receive replies from incoming emails, follow these steps:
 
 1. **Configure a Department**  
    In your Filament admin panel, navigate to **Support > Departments**.  
