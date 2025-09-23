@@ -5,7 +5,7 @@ A **Filament 4 plugin** that provides a support ticket desk for your Laravel app
 Easily create, track, and manage customer support requests with features like departments, email integration, internal notes, assignments, priorities, and more.
 
 
-![thumbnail.png](art/thumbnail.png)
+![thumbnail.jpg](thumbnail.jpg)
 
 
 ## ✨ Features
