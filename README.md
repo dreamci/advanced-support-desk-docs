@@ -1,14 +1,12 @@
 # Filament Helpdesk
 
-A **Filament 4 plugin** that provides a support ticket desk for your Laravel application. Designed for teams who want to manage customer tickets directly inside their Filament admin panel.
-
-Easily create, track, and manage customer support requests with features like departments, email integration, internal notes, assignments, priorities, and more.
+A **Filament plugin** that provides a support ticket desk for your Laravel application. Designed for teams who want to manage customer tickets directly inside their Filament admin panel.
 
 
 ![thumbnail.jpg](thumbnail.jpg)
 
 
-## ✨ Features
+## Features
 
 -    **Ticket Management**: Create, assign, and track support tickets with status, priority, and department fields.
 -    **Requester & Client Integration**: Automatically link tickets to your application's users (clients) with name and email.
