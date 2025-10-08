@@ -33,12 +33,12 @@ Make sure you add the following repository to your `composer.json` file:
 
 ```json
 {
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://filament-helpdesk.composer.sh"
-        }
-    ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://filament-helpdesk-umni.composer.sh"
+    }
+  ],
 }
 ```
 
@@ -52,7 +52,7 @@ To activate your license, use your email address as the username. For the passwo
 
 ```bash 
 Loading composer repositories with package information
-Authentication required (filament-helpdesk.composer.sh):
+Authentication required (filament-helpdesk-umni.composer.sh):
 Username: info@mydomain.com
 Password: 8c210f8f-6173-3932-c4ba-8bcc723ef500:mydomain.com
 ```
